@@ -7,6 +7,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: write
+concurrency:
+  group: ramsar-photo-collection
+  cancel-in-progress: false
 jobs:
   photos:
     runs-on: ubuntu-latest
