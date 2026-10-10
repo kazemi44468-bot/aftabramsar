@@ -43,7 +43,7 @@ def main():
             except Exception as e: print("Search skipped:",e)
     # Remove stale numbered photos first so the manifest and available filenames stay in sync.
     for old in os.listdir(OUT):
-        if re.fullmatch(r"ramsar-\\d{2}\\.jpg",old):
+        if re.fullmatch(r"ramsar-\d{2}\.jpg",old):
             try: os.remove(os.path.join(OUT,old))
             except OSError: pass
     manifest=[]
