@@ -210,3 +210,8 @@ header:before{content:"";position:absolute;z-index:-1;inset:auto 0 4px;height:1p
 @media(min-width:761px) and (max-width:1080px){.nav{gap:8px}.brand{min-width:142px}.brand img{width:36px;height:36px}.navlinks>a,.navgroup>button{padding:5px 6px;font-size:.73rem}.navlinks{gap:1px}.nav>.pill{font-size:.72rem;padding:6px 8px}}
 @media(max-width:760px){.nav{height:60px}.brand img{width:38px;height:38px}.navlinks,.navlinks.open{top:60px}.navlinks>a,.navgroup>button{min-height:39px;padding:8px 9px;font-size:.8rem}.submenu:before{display:none}.footer{padding-top:28px}.system-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.system-grid{grid-template-columns:1fr}.system-card{padding:15px}}
+
+/* لایه تزئینی روی زمینه و زیر محتوای هدر/فوتر */
+header:before,header:after,.footer:before,.footer:after{z-index:0}
+header .nav,.footer>.wrap{position:relative;z-index:1}
+@media(min-width:761px){.navlinks>a,.navgroup>button{padding-left:8px;padding-right:8px}}
