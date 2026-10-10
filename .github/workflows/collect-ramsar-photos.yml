@@ -1,0 +1,30 @@
+name: Collect Ramsar photos
+on:
+  push:
+    paths:
+      - ".github/workflows/collect-ramsar-photos.yml"
+      - "scripts/collect_ramsar_photos.py"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  photos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Download licensed photos from Wikimedia Commons
+        run: python scripts/collect_ramsar_photos.py
+      - name: Commit downloaded images and license manifest
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add images/
+          if ! git diff --cached --quiet; then
+            git commit -m "Add real Ramsar photos and attribution manifest"
+            git push
+          else
+            echo "No new photo changes."
+          fi
