@@ -2,7 +2,7 @@
 """Download up to 50 real Ramsar photos from Wikimedia Commons and save attribution."""
 import json, os, re, time, urllib.parse, urllib.request
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT=os.path.join(ROOT,"images")
+OUT=os.path.join(ROOT,"assets","images")
 os.makedirs(OUT,exist_ok=True)
 API="https://commons.wikimedia.org/w/api.php"
 HEAD={"User-Agent":"AftabRamsarWebsite/1.0 (website photo collection)"}
@@ -42,8 +42,8 @@ def main():
                         found.setdefault(title,{"url":url,"description":clean(meta.get("ImageDescription",{}).get("value","")),"artist":clean(meta.get("Artist",{}).get("value","")),"license":clean(meta.get("LicenseShortName",{}).get("value","")),"license_url":meta.get("LicenseUrl",{}).get("value",""),"source_page":"https://commons.wikimedia.org/wiki/"+urllib.parse.quote(title,safe=":/")})
             except Exception as e: print("Search skipped:",e)
     manifest=[]
-    for i,(title,item) in enumerate(list(found.items())[:50],1):
-        target=os.path.join(OUT,f"ramsar-{i:02d}.jpg")
+    for title,item in list(found.items())[:50]:
+        target=os.path.join(OUT,f"ramsar-{len(manifest)+1:02d}.jpg")
         try:
             req=urllib.request.Request(item["url"],headers=HEAD)
             with urllib.request.urlopen(req,timeout=60) as res: data=res.read()
