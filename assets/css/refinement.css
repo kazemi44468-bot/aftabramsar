@@ -1,0 +1,91 @@
+/* آفتاب رامسر — لایه تکمیلی طراحی */
+:root{--pine:#173f35;--pine2:#2d705b;--gold:#c9a96e;--cream:#f5f4ee;--ink:#233a31;--muted:#718078;--line:#e1e7e1;--shadow:0 18px 46px #173d3012;--shadow-hover:0 22px 52px #173d3020}
+::selection{background:#dce9df;color:var(--pine)}
+:focus-visible{outline:3px solid #c9a96e;outline-offset:3px}
+body{letter-spacing:-.01em}
+.topline{height:4px}
+header{box-shadow:0 5px 20px #173d3007}
+.nav{gap:18px}
+.brand{gap:12px}
+.brand img{filter:drop-shadow(0 3px 5px #173d3014)}
+.navlinks>a,.navgroup>button{transition:background .2s,color .2s}
+.navlinks>a[aria-current=page]{background:#edf3ee;color:var(--pine);font-weight:700}
+.submenu{border-color:#e5e9e2;box-shadow:0 18px 42px #173d3019}
+.submenu a{transition:background .18s,padding .18s}
+.submenu a:hover{padding-right:16px}
+.pill,.btn{box-shadow:0 5px 12px #173d3010;transition:transform .2s,box-shadow .2s,background .2s}
+.pill:hover,.btn:hover{box-shadow:0 10px 22px #173d3020}
+.pagehero{padding:64px 0 54px;background-position:center 44%}
+.pagehero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0c2e27a8,#0c2e271c);pointer-events:none}
+.pagehero:after{width:280px;height:280px;border-radius:45% 55% 58% 42%;transform:rotate(25deg);left:-95px;top:-140px}
+.pagehero h1{max-width:900px;text-wrap:balance}
+.pagehero p{max-width:680px;line-height:2}
+.crumb{display:flex;align-items:center;gap:9px}
+.crumb a{display:inline-flex;align-items:center;gap:6px}
+.pagecontent{padding-top:46px}
+.introline{letter-spacing:0}
+.sectiontitle{letter-spacing:-.025em;text-wrap:balance}
+.lead{line-height:2.05}
+.panel,.tile,.photo,.fact,.notice-row,.notice,.card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.panel:hover,.tile:hover,.fact:hover{border-color:#cdd9ce;box-shadow:0 12px 28px #173d300d}
+.tile{background:linear-gradient(145deg,#fff,#f8faf6)}
+.tileicon{border:1px solid #dce7dc}
+.photo{margin:0}
+.photo img{transition:transform .4s ease}
+.photo:hover img{transform:scale(1.025)}
+.photo figcaption{line-height:1.8}
+.site-note a{text-decoration:underline;text-underline-offset:3px}
+.statusnote{border-radius:0 8px 8px 0;line-height:1.9}
+.callout{position:relative;overflow:hidden;box-shadow:0 14px 32px #173d3010}
+.callout:after{content:"";position:absolute;left:-45px;bottom:-90px;width:210px;height:210px;border:1px solid #ffffff18;border-radius:50%;box-shadow:0 0 0 20px #ffffff06,0 0 0 42px #ffffff04;pointer-events:none}
+.callout>*{position:relative;z-index:1}
+.footer{position:relative;overflow:hidden}
+.footer:before{content:"";position:absolute;inset:0 0 auto;height:3px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.footlinks a{width:fit-content;transition:color .2s,transform .2s}
+.footlinks a:hover{transform:translateX(-3px)}
+.backtop{border-radius:50%;box-shadow:0 8px 22px #173d3029}
+.field input,.field textarea{transition:border-color .2s,box-shadow .2s}
+@media(min-width:761px){.navlinks{gap:3px}.navlinks>a,.navgroup>button{padding:10px 9px}.navgroup:hover .submenu{animation:menuIn .16s ease both}}
+@keyframes menuIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:760px){.pagehero{padding:38px 0 35px}.pagecontent{padding-top:30px}.navlinks{border-color:#dce5dd}.navlinks.open{box-shadow:0 20px 48px #173d3022}.mobile-nav-note{line-height:1.8}.footer{padding-top:35px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+/* صفحه نخست */
+.home-page .hero{min-height:620px}
+.home-page .hero:before{background:linear-gradient(90deg,#082820ed 0%,#0a3027b8 45%,#0c332738 100%),url('assets/images/ramsar-01.jpg') center 48%/cover no-repeat}
+.home-page .hero:after{height:130px}
+.home-page .hero-copy{max-width:720px;padding-top:100px;padding-bottom:130px}
+.home-page .hero h1{max-width:690px;font-size:clamp(2.8rem,5.3vw,4.65rem);text-wrap:balance}
+.home-page .hero p{line-height:2.1;max-width:600px}
+.home-page .hero .btn{padding:12px 20px}
+.home-page .hero-location{bottom:30px}
+.home-page .stats{margin-top:-34px}
+.home-page .statrow{border:1px solid #e7e9df;box-shadow:0 18px 50px #173d3018}
+.home-page .stat{padding:20px 24px}
+.home-page .stat b{font-size:1.48rem}
+.home-page section{padding:78px 0}
+.home-page .heading{margin-bottom:25px}
+.home-page .heading h2,.home-page .about h2{letter-spacing:-.025em;text-wrap:balance}
+.home-page .aboutgrid{gap:46px}
+.home-page .aboutphoto{height:390px;border-radius:14px;padding:6px}
+.home-page .aboutphoto img{border-radius:9px}
+.home-page .features{gap:10px}
+.home-page .feature{align-items:center;border-radius:10px;transition:transform .2s,border-color .2s,box-shadow .2s}
+.home-page .feature:hover{transform:translateY(-2px);border-color:#cdd9ce;box-shadow:0 8px 20px #173d300c}
+.home-page .ico{border-radius:10px}
+.home-page .cards{gap:16px}
+.home-page .card{border-radius:12px}
+.home-page .card:hover{box-shadow:var(--shadow-hover);border-color:#d4dfd4}
+.home-page .card img{height:205px;padding:5px}
+.home-page .card div{padding:15px 17px 17px}
+.home-page .feature-slider{box-shadow:0 14px 35px #173d3012}
+.home-page .slide-frame{height:clamp(260px,40vw,460px)}
+.home-page .gallery{grid-auto-rows:140px;gap:12px}
+.home-page .shot{padding:4px;border-radius:10px}
+.home-page .shot img{border-radius:6px}
+.home-page .notices{gap:12px}
+.home-page .notice{padding:15px 17px}
+.home-page .cta{border-radius:12px;padding:34px 38px;box-shadow:0 16px 38px #173d3015}
+.home-page .footer{padding-top:42px}
+@media(max-width:850px){.home-page .aboutgrid{gap:26px}.home-page .hero{min-height:580px}}
+@media(max-width:680px){.home-page .hero{min-height:550px}.home-page .hero-copy{padding:66px 0 94px}.home-page .hero h1{font-size:clamp(2.35rem,9vw,3rem)}.home-page .stats{margin-top:-20px}.home-page section{padding:54px 0}.home-page .aboutphoto{height:280px}.home-page .card img{height:145px}.home-page .gallery{grid-auto-rows:105px;gap:8px}.home-page .notice{padding:13px}.home-page .cta{padding:25px 23px}.home-page .stat{padding:14px}.home-page .stat b{font-size:1.25rem}}
+@media(max-width:390px){.home-page .cards{grid-template-columns:1fr}.home-page .card img{height:180px}.home-page .features{grid-template-columns:1fr}}
