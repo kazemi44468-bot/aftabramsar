@@ -41,6 +41,11 @@ def main():
                         meta=info.get("extmetadata",{})
                         found.setdefault(title,{"url":url,"description":clean(meta.get("ImageDescription",{}).get("value","")),"artist":clean(meta.get("Artist",{}).get("value","")),"license":clean(meta.get("LicenseShortName",{}).get("value","")),"license_url":meta.get("LicenseUrl",{}).get("value",""),"source_page":"https://commons.wikimedia.org/wiki/"+urllib.parse.quote(title,safe=":/")})
             except Exception as e: print("Search skipped:",e)
+    # Remove stale numbered photos first so the manifest and available filenames stay in sync.
+    for old in os.listdir(OUT):
+        if re.fullmatch(r"ramsar-\\d{2}\\.jpg",old):
+            try: os.remove(os.path.join(OUT,old))
+            except OSError: pass
     manifest=[]
     for title,item in list(found.items())[:50]:
         target=os.path.join(OUT,f"ramsar-{len(manifest)+1:02d}.jpg")
