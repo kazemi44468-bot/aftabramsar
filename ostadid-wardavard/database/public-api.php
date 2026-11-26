@@ -30,7 +30,8 @@ try {
   $input = json_decode(file_get_contents('php://input'), true) ?? [];
   $type = trim((string)($input['request_type'] ?? ''));
   $name = trim((string)($input['full_name'] ?? ''));
-  $mobile = preg_replace('/[^0-9+]/', '', (string)($input['mobile'] ?? ''));
+  $mobileRaw = strtr((string)($input['mobile'] ?? ''), ['۰'=>'0','۱'=>'1','۲'=>'2','۳'=>'3','۴'=>'4','۵'=>'5','۶'=>'6','۷'=>'7','۸'=>'8','۹'=>'9','٠'=>'0','١'=>'1','٢'=>'2','٣'=>'3','٤'=>'4','٥'=>'5','٦'=>'6','٧'=>'7','٨'=>'8','٩'=>'9']);
+  $mobile = preg_replace('/[^0-9+]/', '', $mobileRaw);
   $subject = trim((string)($input['subject'] ?? ''));
   $description = trim((string)($input['description'] ?? ''));
   if ($type === '' || mb_strlen($name) < 3 || !preg_match('/^[0-9+]{10,15}$/', $mobile) || mb_strlen($subject) < 3 || mb_strlen($description) < 5) {
