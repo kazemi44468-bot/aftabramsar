@@ -19,6 +19,8 @@ CREATE TABLE IF NOT EXISTS monthly_reports (
  title TEXT NOT NULL,
  cumulative_percent REAL NOT NULL,
  summary TEXT NOT NULL,
+ event_text TEXT NOT NULL DEFAULT '',
+ interview_text TEXT NOT NULL DEFAULT '',
  actions_json TEXT NOT NULL DEFAULT '[]',
  gallery_json TEXT NOT NULL DEFAULT '[]',
  next_steps TEXT NOT NULL DEFAULT '',
