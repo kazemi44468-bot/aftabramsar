@@ -48,7 +48,7 @@ try {
   echo json_encode(['ok'=>true,'tracking_code'=>$code,'status'=>'ثبت اولیه','created_at'=>$stamp], JSON_UNESCAPED_UNICODE); exit;
  }
  if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'reports') {
-  $stmt = $pdo->query('SELECT year,month,title,cumulative_percent,summary,event_text,interview_text,actions_json,gallery_json,next_steps,created_at FROM monthly_reports WHERE published = 1 ORDER BY year DESC, month DESC LIMIT 120');
+  $stmt = $pdo->query('SELECT year,month,title,cumulative_percent,planned_percent,schedule_note,summary,event_text,interview_text,interviews_json,strengths_json,weaknesses_json,news_json,videos_json,actions_json,gallery_json,next_steps,created_at FROM monthly_reports WHERE published = 1 ORDER BY year DESC, month DESC LIMIT 120');
   echo json_encode(['ok'=>true,'items'=>$stmt->fetchAll()], JSON_UNESCAPED_UNICODE); exit;
  }
  if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'news') {
