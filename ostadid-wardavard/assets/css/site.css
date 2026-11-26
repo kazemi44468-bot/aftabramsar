@@ -91,3 +91,86 @@ header{position:sticky;top:0;z-index:100;background:#ffffffed;backdrop-filter:bl
 .amenity-card p{font-size:.84rem;line-height:2;color:#6c7a74;margin:0}
 @media(max-width:900px){.corridor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.amenity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.corridor-grid,.amenity-grid,.transit-strip{grid-template-columns:1fr}.corridor-card{min-height:auto}}
+
+/* بازطراحی یکپارچه بر اساس هویت بصری آفتاب رامسر */
+:root{--pine:#173f35;--pine2:#2d705b;--gold:#c9a96e;--cream:#f5f4ee;--ink:#233a31;--muted:#718078;--line:#e1e7e1;--shadow:0 18px 46px #173d3012}
+body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
+.topline{height:4px;background:linear-gradient(90deg,transparent,#c9a96e,#e7d9b6,#2d705b,transparent)}
+.site-header{background:#ffffffed;backdrop-filter:blur(14px);box-shadow:0 5px 20px #173d3007;border-bottom:1px solid #e1e7e1}
+.nav{height:78px;gap:18px}
+.brand{min-width:225px;gap:12px;color:#173f35}
+.brand-mark{width:43px;height:43px;border-radius:11px;background:linear-gradient(145deg,#173f35,#2d705b);color:#f2dfb8;font-family:'Vazirmatn',sans-serif;font-size:1.2rem;font-weight:900;box-shadow:0 4px 12px #173f3520;border:1px solid #c9a96e}
+.brand b{font-size:.98rem;font-weight:900}.brand small{font-size:.7rem;color:#8b9691;margin-top:3px}
+.navlinks{gap:3px;font-size:.84rem;color:#40564d}
+.navlinks>a,.navgroup>button{display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 9px;border:1px solid #e9eee8;background:#fbfcfa;color:inherit;border-radius:8px;white-space:nowrap;cursor:pointer;text-decoration:none;font:inherit;transition:background .2s,color .2s,border-color .2s}
+.navlinks>a:hover,.navgroup>button:hover,.navgroup.open>button,.navlinks>a[aria-current=page]{background:#edf3ee;border-color:#d8e4d8;color:#173f35}
+.navgroup>button{font-weight:600}.chevron{font-size:.9rem;color:#87978d;transition:transform .2s}.navgroup.open .chevron{transform:rotate(180deg)}
+.submenu{top:calc(100% + 8px);right:0;min-width:225px;padding:8px;background:#fff;border:1px solid #e5e9e2;border-radius:10px;box-shadow:0 18px 42px #173d3019;z-index:110}
+.submenu a{padding:9px 12px;border-radius:7px;font-size:.82rem;color:#40564d;transition:background .18s,padding .18s}
+.submenu a:hover{background:#f1f5f0;padding-right:16px;color:#173f35}
+.hamb{font-family:inherit;border:1px solid #dce5dd;background:#fff;border-radius:8px;padding:8px 12px;color:#173f35;font-size:.82rem}
+.hero{min-height:580px}
+.hero:before{background:linear-gradient(90deg,#102f28e8 0%,#173f35b8 48%,#173f3540 100%),url('https://021home.ir/wp-content/uploads/2021/10/%D8%B4%D9%87%D8%B1%DA%A9-%D8%AF%D8%A7%D9%86%D8%B4%DA%AF%D8%A7%D9%87-%D8%B4%D8%B1%DB%8C%D9%81-%D9%88%D8%B1%D8%AF%D8%A2%D9%88%D8%B1%D8%AF-%D8%B4%D9%85%D8%A7%D9%84%DB%8C-%D8%A8%D9%84%D9%88%D8%A7%D8%B1-%D8%A7%D8%B1%D8%AF%D8%B3%D8%AA%D8%A7%D9%86%DB%8C.jpeg') center/cover no-repeat}
+.hero h1,.pagehero h1{font-family:'Vazirmatn',sans-serif;font-weight:900;letter-spacing:-.035em}
+.section h2,.section-head h2,.content h2{color:#173f35}
+.kicker{color:#9a7844}
+.btn{background:#173f35;border-color:#173f35;border-radius:8px;box-shadow:0 5px 12px #173d3010}
+.btn:hover{background:#2d705b;border-color:#2d705b;box-shadow:0 10px 22px #173d3020}
+.btn.copper{background:#b58a4e;border-color:#b58a4e}
+.pagehero{position:relative;overflow:hidden;background:linear-gradient(115deg,#12372e,#245b4a);padding:48px 0 40px}
+.pagehero:before{content:"";position:absolute;inset:0;background:url('../../../assets/images/024-pattern.png') repeat;opacity:.13;pointer-events:none}
+.pagehero .wrap{position:relative;z-index:1}
+.pagehero:after{display:none}
+.footer{position:relative;overflow:hidden;background:linear-gradient(120deg,#0c2d26 0%,#17463a 55%,#12392f 100%);padding:38px 0 17px;border-top:3px solid #c9a96e;color:#e2ebe5}
+.footer-pattern{position:absolute;inset:0;background:url('../../../assets/images/024-pattern.png') repeat;opacity:.13;pointer-events:none}
+.footer-inner{position:relative;z-index:1}
+.footgrid{grid-template-columns:1.3fr .8fr .9fr;gap:30px;padding-bottom:24px}
+.footer-title{font-weight:900;font-size:1.05rem;color:#f1dfb9;margin-bottom:10px}
+.footer h4{font-size:.9rem;color:#f1dfb9;margin:0 0 10px}
+.footer p,.footer a{font-size:.81rem;line-height:1.95;color:#cbd9d0}
+.footer p{max-width:370px;margin:0}
+.footlinks{display:grid;gap:5px}
+.footlinks a{width:fit-content;border-bottom:1px solid transparent;transition:color .2s,transform .2s}
+.footlinks a:hover{color:#f0d6a1;border-color:#c9a96e;transform:translateX(-2px)}
+.footer-bottom{display:flex;justify-content:space-between;gap:15px;border-top:1px solid #ffffff25;padding-top:13px;color:#b9c9c0;font-size:.74rem}
+.system-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.system-card{border-radius:13px;box-shadow:0 8px 24px #173d3008}
+.system-card .symbol{height:72px;background:linear-gradient(120deg,#173f35,#2d705b);color:#f1dfb9;font-size:1rem;font-weight:700;letter-spacing:.08em}
+.system-card .body{padding:19px}
+.system-card a{color:#28634e}
+.transit-symbol{font-size:.9rem;font-weight:800;color:#2d705b;border:1px solid #dce7dc;border-radius:7px;padding:7px 9px;background:#f4f7f2}
+.benefit-icon{background:#edf3ee;color:#245b4a;border:1px solid #dce7dc}
+.slogan-band{background:linear-gradient(135deg,#f4f5ee,#e8f0e8);border-color:#dce7dc}
+@media(min-width:761px){.navlinks{gap:3px}.navlinks>a,.navgroup>button{padding:10px 9px}.navgroup:hover .submenu{animation:menuIn .16s ease both}}
+@keyframes menuIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.nav{height:72px;gap:12px}.brand{min-width:180px}.navlinks{gap:2px;font-size:.76rem}.navlinks>a,.navgroup>button{padding:9px 6px}}
+@media(max-width:760px){.nav{height:60px;gap:8px}.brand{min-width:0;gap:8px}.brand-mark{width:39px;height:39px}.brand b{font-size:.94rem}.hamb{display:block}.navlinks,.navlinks.open{display:none;position:absolute;top:60px;right:10px;left:10px;margin:0;white-space:normal;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:6px;padding:9px;background:#fff;border:1px solid #dce5dd;border-radius:12px;box-shadow:0 20px 48px #173d3022;max-height:calc(100vh - 75px);overflow:auto}.navlinks.open{display:grid}.navlinks>a,.navgroup>button{width:100%;min-height:40px;justify-content:space-between;text-align:right;white-space:normal;padding:8px 9px;background:#f7f9f6;border:1px solid #e9eee8;border-radius:8px;font-size:.8rem}.navgroup{min-width:0}.submenu{position:static;grid-column:1/-1;width:100%;min-width:0;margin-top:4px;padding:5px;box-shadow:none;background:#fbfcfa}.navgroup.open .submenu{display:grid}.footgrid{grid-template-columns:1fr 1fr;gap:18px}.footer-intro{grid-column:1/-1}.footer{padding-top:28px}.footer-bottom{display:block}.footer-bottom span{display:block;margin-top:4px}.system-grid{grid-template-columns:1fr}}
+@media(max-width:390px){.brand b{font-size:.88rem}.brand small{font-size:.64rem}.navlinks,.navlinks.open{right:7px;left:7px;gap:4px;padding:7px}.navlinks>a,.navgroup>button{font-size:.76rem;padding:8px 6px}}
+/* گزارش پیشرفت و اطلاع‌رسانی */
+.progress-overview{display:grid;grid-template-columns:300px 1fr;gap:26px;align-items:center;padding:28px;background:#fff;border:1px solid #e1e7e1;border-radius:18px;box-shadow:0 12px 32px #173d3008;margin:24px 0}
+.progress-gauge{width:220px;height:220px;margin:auto;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#dfe8df 0 100%);position:relative}
+.progress-gauge:before{content:"";position:absolute;inset:13px;border-radius:50%;background:#fff;border:1px solid #e6ece5}
+.progress-gauge>div{position:relative;text-align:center}
+.progress-gauge strong{display:block;font-size:2.4rem;color:#173f35;line-height:1.4}
+.progress-gauge span{font-size:.78rem;color:#78877f}
+.progress-copy h2{margin:0 0 8px;color:#173f35}
+.progress-copy p{margin:0;color:#6d7b73;line-height:2}
+.report-list{display:grid;gap:18px;margin:24px 0}
+.report-card{background:#fff;border:1px solid #e1e7e1;border-radius:16px;overflow:hidden}
+.report-head{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:18px 22px;background:#f6f8f3;border-bottom:1px solid #e7ece5}
+.report-head h3{margin:0;color:#173f35;font-size:1.05rem}
+.report-head span{font-size:.78rem;color:#718078}
+.report-body{padding:22px}
+.report-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
+.report-sections>div{padding:15px;border:1px solid #e7ece5;border-radius:10px;background:#fcfdfb}
+.report-sections b{display:block;color:#315c4b;font-size:.87rem;margin-bottom:4px}
+.report-sections p{margin:0;color:#78847e;font-size:.82rem;line-height:1.9}
+.empty-report{padding:26px;text-align:center;border:1px dashed #cbd8ce;border-radius:13px;background:#fbfcf9;color:#6d7c72}
+.empty-report strong{display:block;color:#315c4b;margin-bottom:6px}
+.news-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:24px 0}
+.news-card{background:#fff;border:1px solid #e2e9e1;border-radius:14px;padding:21px;box-shadow:0 8px 24px #173d3008}
+.news-card .news-type{font-size:.75rem;color:#9a7844;font-weight:700}
+.news-card h3{font-size:1rem;color:#173f35;margin:7px 0}
+.news-card p{font-size:.86rem;color:#6f7c74;line-height:2;margin:0}
+.news-date{display:block;border-top:1px solid #edf0eb;margin-top:14px;padding-top:10px;color:#89938d;font-size:.75rem}
+@media(max-width:760px){.progress-overview{grid-template-columns:1fr;padding:20px}.progress-gauge{width:190px;height:190px}.report-sections,.news-grid{grid-template-columns:1fr}.report-head{align-items:flex-start;flex-direction:column}}
