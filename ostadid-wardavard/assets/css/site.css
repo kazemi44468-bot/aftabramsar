@@ -194,3 +194,5 @@ body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
 .feature i,.benefit-icon{display:none!important}
 .feature{gap:0}
 .benefit-card{padding-top:20px}
+
+.amenity-card>span{display:none!important}
