@@ -41,3 +41,32 @@ header{position:sticky;top:0;z-index:100;background:#ffffffed;backdrop-filter:bl
 .photo-tile figcaption{padding:13px 15px;color:#52646b;font-size:.83rem;line-height:1.9}
 @media(max-width:850px){.nav{height:72px}.brand{min-width:195px}.navlinks{gap:5px;font-size:.78rem}.navlinks>a,.navgroup>button{padding:9px 8px}}
 @media(max-width:680px){.nav{height:68px;justify-content:space-between}.brand{min-width:0}.hamb{display:block}.navlinks,.navlinks.open{display:none;position:absolute;top:68px;right:12px;left:12px;margin:0;white-space:normal;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;gap:7px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 18px 44px #173d3024;max-height:calc(100vh - 86px);overflow:auto}.navlinks.open{display:grid}.navlinks>a,.navgroup>button{width:100%;min-height:43px;justify-content:space-between;text-align:right;white-space:normal;padding:10px 9px;background:#f7f9f6;border:1px solid #e9eee8;border-radius:8px;font-size:.82rem}.navgroup{min-width:0}.submenu{position:static;grid-column:1/-1;width:100%;min-width:0;margin-top:4px;padding:5px;box-shadow:none;background:#fbfcfa}.navgroup.open .submenu{display:grid}.mobile-note{display:block;grid-column:1/-1;padding:7px 9px;color:#9c785d;font-size:.73rem}.photo-grid{grid-template-columns:1fr}.photo-tile img{height:220px}.map-panel{padding:14px}.map-panel iframe{height:310px}.hero{background-position:56% center}}
+
+/* محتوای مزیت‌ها، دسترسی و سرمایه‌گذاری */
+.benefit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:28px 0}
+.benefit-card{background:#fff;border:1px solid #e6e9e3;border-radius:15px;padding:23px 21px;box-shadow:0 10px 28px #203c4a09;transition:transform .2s,box-shadow .2s}
+.benefit-card:hover{transform:translateY(-3px);box-shadow:0 16px 34px #203c4a14}
+.benefit-icon{width:43px;height:43px;display:grid;place-items:center;background:#edf3ef;color:#315563;border-radius:12px;font-size:1.35rem;margin-bottom:15px}
+.benefit-card h3{font-size:1.02rem;margin:0 0 9px;color:#243f4a}
+.benefit-card p,.access-main p,.investment-panel p{font-size:.9rem;line-height:2.05;color:#65736f;margin:0}
+.access-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;margin-top:25px}
+.access-main,.access-aside{border:1px solid #e5e9e2;border-radius:16px;padding:27px;background:#fff}
+.access-main h3,.access-aside h3{margin:0 0 13px;color:#203c4a}
+.check-list{padding-right:20px;margin:16px 0 0;color:#5d6c68;line-height:2.3;font-size:.9rem}
+.access-aside{background:linear-gradient(145deg,#203c4a,#345766);color:#fff;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.access-aside h3{color:#fff;margin-top:8px}.access-aside p{color:#e3ece9;line-height:2;margin:0 0 18px;font-size:.9rem}
+.access-aside .script-accent{color:#e6bd9d;font-size:2.2rem}
+.investment-panel{display:grid;grid-template-columns:1.5fr 1fr;gap:30px;padding:36px;border-radius:20px;background:#f5f7f3;border:1px solid #e2e8df}
+.investment-panel h2{margin:8px 0 14px;color:#203c4a}
+.investment-panel p+p{margin-top:12px}
+.investment-panel .btn{margin-top:20px}
+.investment-points{display:grid;gap:11px;align-content:center}
+.investment-points div{display:flex;align-items:center;gap:13px;background:#fff;border:1px solid #e5e9e2;border-radius:11px;padding:13px}
+.investment-points b{width:34px;height:34px;display:grid;place-items:center;border-radius:9px;background:#e9f0eb;color:#315563;flex:none}
+.investment-points span{font-size:.86rem;color:#52645f}
+.slogan-band{text-align:center;padding:48px 20px;border-radius:20px;background:linear-gradient(135deg,#f3f5ef,#e8efea);border:1px solid #e0e8df}
+.slogan-band .script-accent{font-size:2.7rem}
+.slogan-band h2{margin:10px 0;color:#203c4a;font-size:clamp(1.25rem,2.8vw,2rem)}
+.slogan-band p{margin:0;color:#71807a}
+@media(max-width:850px){.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.access-grid,.investment-panel{grid-template-columns:1fr}}
+@media(max-width:560px){.benefit-grid{grid-template-columns:1fr}.benefit-card{padding:19px}.investment-panel{padding:22px}.access-main,.access-aside{padding:21px}.slogan-band{padding:34px 16px}}
