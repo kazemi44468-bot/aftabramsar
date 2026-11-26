@@ -43,7 +43,7 @@ try {
  if ($action === 'requests') {
   $fields = ['tracking_code','request_type','full_name','mobile','subject','description','status','admin_note','created_at','updated_at'];
  } elseif ($action === 'monthly_reports') {
-  $fields = ['year','month','title','cumulative_percent','summary','actions_json','gallery_json','next_steps','published','created_at'];
+  $fields = ['year','month','title','cumulative_percent','summary','event_text','interview_text','actions_json','gallery_json','next_steps','published','created_at'];
  } else {
   $fields = ['title','category','body','published_at','published'];
  }
