@@ -47,6 +47,14 @@ try {
   $_SESSION['last_request_submit'] = $now;
   echo json_encode(['ok'=>true,'tracking_code'=>$code,'status'=>'ثبت اولیه','created_at'=>$stamp], JSON_UNESCAPED_UNICODE); exit;
  }
+ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'reports') {
+  $stmt = $pdo->query('SELECT year,month,title,cumulative_percent,summary,event_text,interview_text,actions_json,gallery_json,next_steps,created_at FROM monthly_reports WHERE published = 1 ORDER BY year DESC, month DESC LIMIT 120');
+  echo json_encode(['ok'=>true,'items'=>$stmt->fetchAll()], JSON_UNESCAPED_UNICODE); exit;
+ }
+ if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'news') {
+  $stmt = $pdo->query('SELECT title,category,body,published_at FROM announcements WHERE published = 1 ORDER BY published_at DESC LIMIT 100');
+  echo json_encode(['ok'=>true,'items'=>$stmt->fetchAll()], JSON_UNESCAPED_UNICODE); exit;
+ }
  if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'track') {
   $code = strtoupper(trim((string)($_GET['code'] ?? '')));
   if (!preg_match('/^WV-[A-F0-9]{16}$/', $code)) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'کد پیگیری معتبر نیست.']); exit; }
