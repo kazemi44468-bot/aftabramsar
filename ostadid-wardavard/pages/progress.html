@@ -103,8 +103,9 @@ function render(){
  const deltaLabel=(delta>0?"+":"")+fa(delta)+"٪";
  const videoHtml=(r.videos||[]).length?(r.videos||[]).map(v=>{
   const url=typeof v==="string"?v:v.url||"",title=typeof v==="string"?"ویدئوی گزارش":v.title||"ویدئوی گزارش";
-  const isFile=/\.(mp4|webm|ogg)(\?|$)/i.test(url);
-  return '<article class="video-card">'+(isFile?'<video controls preload="metadata" src="'+url+'"></video>':'<div class="video-link"><span>رسانه ویدئویی</span><a href="'+url+'" target="_blank" rel="noopener">مشاهده یا پخش ویدئو</a></div>')+'<b>'+title+'</b></article>';
+  const isFile=/\.(mp4|webm|ogg|mov)(\?|$)/i.test(url),yt=url.match(/(?:youtube\.com\/(?:watch\?v=|embed\/)|youtu\.be\/)([A-Za-z0-9_-]{11})/),vm=url.match(/vimeo\.com\/(\d+)/);
+  const player=yt?'<iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/'+yt[1]+'" title="'+title+'" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>':vm?'<iframe loading="lazy" src="https://player.vimeo.com/video/'+vm[1]+'" title="'+title+'" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>':isFile?'<video controls preload="metadata" src="'+url+'"></video>':'<div class="video-link"><span>رسانه ویدئویی</span><a href="'+url+'" target="_blank" rel="noopener">مشاهده یا پخش ویدئو</a></div>';
+  return '<article class="video-card">'+player+'<b>'+title+'</b></article>';
  }).join(""):'<div class="media-empty">برای این دوره هنوز کلیپ یا فیلمی ثبت نشده است.</div>';
  const interviews=(r.interviews||[]).map((x,i)=>'<article class="interview-card"><span class="interview-index">'+fa(i+1)+'</span><div><b>'+x.role+'</b><p>'+x.topic+'</p>'+(x.quote?'<blockquote>'+x.quote+'</blockquote>':'')+'</div></article>').join("");
  const news=(r.news||[]).map((x,i)=>'<li><span>'+fa(i+1)+'</span><p>'+x+'</p></li>').join("");
