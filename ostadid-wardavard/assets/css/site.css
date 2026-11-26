@@ -339,3 +339,7 @@ img,video,iframe{max-width:100%}
  .photo-tile img{height:205px}
  .content h2{font-size:1.15rem}
 }
+
+
+/* سقف اندازه فونت و مهار اندازه پیش‌فرض مرورگر */
+h1{font-size:min(1.875rem,30px)}
