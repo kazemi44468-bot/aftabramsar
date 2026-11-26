@@ -27,6 +27,19 @@ try {
  $method = $_SERVER['REQUEST_METHOD'];
  $action = $_GET['action'] ?? '';
  if ($action === 'health' && $method === 'GET') { echo json_encode(['ok'=>true,'driver'=>$config['driver'],'time'=>date(DATE_ATOM)]); exit; }
+ if ($action === 'upload_video' && $method === 'POST') {
+  if (empty($_FILES['video']) || !is_uploaded_file($_FILES['video']['tmp_name'])) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'فایل ویدئو دریافت نشد.']); exit; }
+  $file = $_FILES['video'];
+  if (($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK || (int)$file['size'] > 100 * 1024 * 1024) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'حجم فایل باید کمتر از ۱۰۰ مگابایت باشد.']); exit; }
+  $finfo = new finfo(FILEINFO_MIME_TYPE); $mime = $finfo->file($file['tmp_name']);
+  $allowed = ['video/mp4'=>'mp4','video/webm'=>'webm','video/quicktime'=>'mov'];
+  if (!isset($allowed[$mime])) { http_response_code(415); echo json_encode(['ok'=>false,'error'=>'فقط ویدئوی MP4، WebM یا MOV مجاز است.']); exit; }
+  $dir = dirname(__DIR__) . '/assets/videos';
+  if (!is_dir($dir) && !mkdir($dir, 0755, true)) { http_response_code(500); echo json_encode(['ok'=>false,'error'=>'ساخت پوشه ویدئو ممکن نشد.']); exit; }
+  $name = bin2hex(random_bytes(16)) . '.' . $allowed[$mime];
+  if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) { http_response_code(500); echo json_encode(['ok'=>false,'error'=>'ذخیره ویدئو انجام نشد.']); exit; }
+  echo json_encode(['ok'=>true,'url'=>'../assets/videos/' . $name], JSON_UNESCAPED_UNICODE); exit;
+ }
  $tables = ['requests','monthly_reports','announcements'];
  if (!in_array($action, $tables, true)) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Unknown action']); exit; }
  if ($method === 'GET') {
@@ -43,7 +56,7 @@ try {
  if ($action === 'requests') {
   $fields = ['tracking_code','request_type','full_name','mobile','subject','description','status','admin_note','created_at','updated_at'];
  } elseif ($action === 'monthly_reports') {
-  $fields = ['year','month','title','cumulative_percent','summary','event_text','interview_text','actions_json','gallery_json','next_steps','published','created_at'];
+  $fields = ['year','month','title','cumulative_percent','planned_percent','schedule_note','summary','event_text','interview_text','interviews_json','strengths_json','weaknesses_json','news_json','videos_json','actions_json','gallery_json','next_steps','published','created_at'];
  } else {
   $fields = ['title','category','body','published_at','published'];
  }
