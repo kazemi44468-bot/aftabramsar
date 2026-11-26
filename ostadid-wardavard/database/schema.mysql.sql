@@ -1,0 +1,36 @@
+CREATE TABLE requests (
+ id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ tracking_code VARCHAR(32) NOT NULL UNIQUE,
+ request_type VARCHAR(80) NOT NULL,
+ full_name VARCHAR(190) NOT NULL,
+ mobile VARCHAR(32) NOT NULL,
+ subject VARCHAR(190) NOT NULL,
+ description TEXT NOT NULL,
+ status VARCHAR(60) NOT NULL DEFAULT 'ثبت اولیه',
+ admin_note TEXT NOT NULL,
+ created_at DATETIME NOT NULL,
+ updated_at DATETIME NOT NULL,
+ INDEX idx_requests_tracking (tracking_code)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE monthly_reports (
+ id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ year SMALLINT UNSIGNED NOT NULL,
+ month TINYINT UNSIGNED NOT NULL,
+ title VARCHAR(190) NOT NULL,
+ cumulative_percent DECIMAL(5,2) NOT NULL,
+ summary TEXT NOT NULL,
+ actions_json JSON NOT NULL,
+ gallery_json JSON NOT NULL,
+ next_steps TEXT NOT NULL,
+ published TINYINT(1) NOT NULL DEFAULT 0,
+ created_at DATETIME NOT NULL,
+ UNIQUE KEY uq_report_period (year, month)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+CREATE TABLE announcements (
+ id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ title VARCHAR(190) NOT NULL,
+ category VARCHAR(80) NOT NULL,
+ body MEDIUMTEXT NOT NULL,
+ published_at DATETIME NOT NULL,
+ published TINYINT(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
