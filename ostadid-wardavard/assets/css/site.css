@@ -189,3 +189,8 @@ body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
 .service-meta span{font-size:.72rem;padding:4px 9px;border:1px solid #e1e9e0;border-radius:6px;color:#62736a;background:#f8faf6}
 @media(max-width:760px){.system-process{grid-template-columns:1fr 1fr}}
 @media(max-width:420px){.system-process{grid-template-columns:1fr}}
+
+.site-header:before{z-index:0}
+.feature i,.benefit-icon{display:none!important}
+.feature{gap:0}
+.benefit-card{padding-top:20px}
