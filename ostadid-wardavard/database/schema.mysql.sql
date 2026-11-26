@@ -19,6 +19,8 @@ CREATE TABLE monthly_reports (
  title VARCHAR(190) NOT NULL,
  cumulative_percent DECIMAL(5,2) NOT NULL,
  summary TEXT NOT NULL,
+ event_text TEXT NOT NULL,
+ interview_text TEXT NOT NULL,
  actions_json JSON NOT NULL,
  gallery_json JSON NOT NULL,
  next_steps TEXT NOT NULL,
