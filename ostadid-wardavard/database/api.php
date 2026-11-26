@@ -27,6 +27,19 @@ try {
  $method = $_SERVER['REQUEST_METHOD'];
  $action = $_GET['action'] ?? '';
  if ($action === 'health' && $method === 'GET') { echo json_encode(['ok'=>true,'driver'=>$config['driver'],'time'=>date(DATE_ATOM)]); exit; }
+ if ($action === 'upload_image' && $method === 'POST') {
+  if (empty($_FILES['image']) || !is_uploaded_file($_FILES['image']['tmp_name'])) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'فایل تصویر دریافت نشد.']); exit; }
+  $file = $_FILES['image'];
+  if (($file['error'] ?? UPLOAD_ERR_OK) !== UPLOAD_ERR_OK || (int)$file['size'] > 15 * 1024 * 1024) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'حجم تصویر باید کمتر از ۱۵ مگابایت باشد.']); exit; }
+  $finfo = new finfo(FILEINFO_MIME_TYPE); $mime = $finfo->file($file['tmp_name']);
+  $allowed = ['image/jpeg'=>'jpg','image/png'=>'png','image/webp'=>'webp'];
+  if (!isset($allowed[$mime])) { http_response_code(415); echo json_encode(['ok'=>false,'error'=>'فقط تصویر JPG، PNG یا WebP مجاز است.']); exit; }
+  $dir = dirname(__DIR__) . '/assets/reports';
+  if (!is_dir($dir) && !mkdir($dir, 0755, true)) { http_response_code(500); echo json_encode(['ok'=>false,'error'=>'ساخت پوشه تصاویر ممکن نشد.']); exit; }
+  $name = bin2hex(random_bytes(16)) . '.' . $allowed[$mime];
+  if (!move_uploaded_file($file['tmp_name'], $dir . '/' . $name)) { http_response_code(500); echo json_encode(['ok'=>false,'error'=>'ذخیره تصویر انجام نشد.']); exit; }
+  echo json_encode(['ok'=>true,'url'=>'../assets/reports/' . $name], JSON_UNESCAPED_UNICODE); exit;
+ }
  if ($action === 'upload_video' && $method === 'POST') {
   if (empty($_FILES['video']) || !is_uploaded_file($_FILES['video']['tmp_name'])) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'فایل ویدئو دریافت نشد.']); exit; }
   $file = $_FILES['video'];
