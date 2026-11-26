@@ -27,7 +27,7 @@ header{position:sticky;top:0;z-index:100;background:#ffffffed;backdrop-filter:bl
 .submenu a{padding:9px 12px;border-radius:7px;font-size:.82rem;color:#40564d;text-decoration:none;transition:background .18s,padding .18s}
 .submenu a:hover{background:#f1f5f0;padding-right:16px;color:var(--pine)}
 .mobile-note{display:none}
-.hero{background-image:linear-gradient(90deg,#142f3bd9 0%,#203c4a9c 50%,#203c4a45 100%),url('https://www.narvandesign.com/projects/baghe%20behesht/22.jpg');background-position:center;background-size:cover}
+.hero{background-image:linear-gradient(90deg,#142f3bd9 0%,#203c4a9c 50%,#203c4a45 100%),url('../images/wardavard-05.jpg');background-position:center;background-size:cover}
 .hero h1,.pagehero h1{font-family:'Shekasteh','Vazirmatn',serif;font-weight:400;letter-spacing:0}
 .section h2,.section-head h2,.content h2{font-family:'Vazirmatn',sans-serif;font-weight:800}
 .script-accent{font-family:'Shekasteh',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:400;color:var(--copper)}
