@@ -1,0 +1,9 @@
+(()=>{"use strict";
+const endpoint="../database/public-api.php";
+const $=id=>document.getElementById(id);
+const show=(el,msg,kind="info")=>{el.hidden=false;el.className="system-result "+kind;el.textContent=msg};
+const submit=$("transferForm");
+if(submit)submit.addEventListener("submit",async e=>{e.preventDefault();const btn=submit.querySelector("button[type=submit]");btn.disabled=true;btn.textContent="در حال ارسال...";const data=Object.fromEntries(new FormData(submit));try{const r=await fetch(endpoint+"?action=submit",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.error||"ارسال درخواست انجام نشد");show($("result"),"درخواست شما با موفقیت ثبت شد. کد پیگیری: "+j.tracking_code+" . این کد را برای پیگیری نزد خود نگه دارید.","success");submit.reset()}catch(err){show($("result"),err.message+" در حال حاضر درخواست به پایگاه داده مرکزی ارسال نشده است. لطفاً پس از فعال‌سازی اتصال هاست دوباره تلاش کنید.","error")}finally{btn.disabled=false;btn.textContent="ثبت درخواست و دریافت کد پیگیری"}});
+const inquiry=$("inquiryForm");
+if(inquiry)inquiry.addEventListener("submit",async e=>{e.preventDefault();const code=$("tracking").value.trim().toUpperCase();const btn=inquiry.querySelector("button[type=submit]");btn.disabled=true;btn.textContent="در حال بررسی...";try{const r=await fetch(endpoint+"?action=track&code="+encodeURIComponent(code));const j=await r.json();if(!r.ok||!j.ok)throw new Error(j.error||"پرونده پیدا نشد");const x=j.item;show($("result"),"کد پیگیری: "+x.tracking_code+" | نوع درخواست: "+x.request_type+" | موضوع: "+x.subject+" | وضعیت: "+x.status+" | تاریخ ثبت: "+x.created_at,"success")}catch(err){show($("result"),err.message,"error")}finally{btn.disabled=false;btn.textContent="پیگیری وضعیت درخواست"}});
+})();
