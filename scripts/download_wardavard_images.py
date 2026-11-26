@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""Download the locally hosted editorial photos for Ostadid Wardavard."""
+"""Download the locally hosted editorial photos for Ostadid Wardavard.
+
+Run manually or through the GitHub Actions workflow after editing this file.
+"""
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.error import URLError, HTTPError
