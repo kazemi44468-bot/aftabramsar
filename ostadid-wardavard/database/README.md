@@ -16,14 +16,14 @@
 
 برای ساخت دیتابیس محلی سمت سرور نیز می‌توان در `config.php` مقدار `driver` را `sqlite` قرار داد و فایل `schema.sqlite.sql` را روی فایل معرفی‌شده در `sqlite_path` اجرا کرد. این حالت به PHP با افزونه PDO_SQLite نیاز دارد.
 
-## جدول‌ها
+فرم نقل‌وانتقال و استعلام عمومی از مسیر `public-api.php` به همین پایگاه داده متصل می‌شوند. API عمومی فقط امکان ثبت درخواست جدید و مشاهده وضعیت با کد رهگیری تصادفی را دارد؛ عملیات مدیریتی از `api.php` و با کلید مدیر انجام می‌شود.\n\n## جدول‌ها
 - `requests`: درخواست‌ها و نقل‌وانتقال‌ها، کد رهگیری، وضعیت و یادداشت کارشناس.
 - `monthly_reports`: گزارش ماهانه، درصد تجمیعی، اقدامات و گالری تصاویر.
 - `announcements`: خبرها و اطلاعیه‌ها.
 
 ## مسیرها
 - مدیریت داده‌ها: `admin/database.html`
-- API: `database/api.php`
+- API مدیریت: `database/api.php`\n- API عمومی ثبت و پیگیری: `database/public-api.php`
 - ساختار MySQL: `database/schema.mysql.sql`
 - ساختار SQLite: `database/schema.sqlite.sql`
 
