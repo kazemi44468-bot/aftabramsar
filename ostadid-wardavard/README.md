@@ -34,7 +34,7 @@
 ## پایگاه داده
 - پنل مدیریت: `admin/database.html`
 - مدیریت محلی مرورگر با IndexedDB و امکان نسخه پشتیبان JSON
-- API سمت سرور: `database/api.php`
+- API مدیریتی: `database/api.php`\n- API عمومی ثبت و پیگیری: `database/public-api.php`
 - ساختار MySQL هاست: `database/schema.mysql.sql`
 - ساختار SQLite: `database/schema.sqlite.sql`
 - راهنمای نصب: `database/README.md`
