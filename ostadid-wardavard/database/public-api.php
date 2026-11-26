@@ -39,7 +39,7 @@ try {
   if (mb_strlen($name)>190 || mb_strlen($subject)>190 || mb_strlen($description)>5000) {
    http_response_code(422); echo json_encode(['ok'=>false,'error'=>'حجم یکی از فیلدها بیش از حد مجاز است.']); exit;
   }
-  $code = 'WV-' . strtoupper(bin2hex(random_bytes(5)));
+  $code = 'WV-' . strtoupper(bin2hex(random_bytes(8)));
   $stamp = date('Y-m-d H:i:s');
   $stmt = $pdo->prepare('INSERT INTO requests (tracking_code,request_type,full_name,mobile,subject,description,status,admin_note,created_at,updated_at) VALUES (:code,:type,:name,:mobile,:subject,:description,:status,:note,:created,:updated)');
   $stmt->execute([':code'=>$code,':type'=>$type,':name'=>$name,':mobile'=>$mobile,':subject'=>$subject,':description'=>$description,':status'=>'ثبت اولیه',':note'=>'',':created'=>$stamp,':updated'=>$stamp]);
@@ -48,7 +48,7 @@ try {
  }
  if ($_SERVER['REQUEST_METHOD'] === 'GET' && $action === 'track') {
   $code = strtoupper(trim((string)($_GET['code'] ?? '')));
-  if (!preg_match('/^WV-[A-F0-9]{10}$/', $code)) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'کد پیگیری معتبر نیست.']); exit; }
+  if (!preg_match('/^WV-[A-F0-9]{16}$/', $code)) { http_response_code(422); echo json_encode(['ok'=>false,'error'=>'کد پیگیری معتبر نیست.']); exit; }
   $stmt = $pdo->prepare('SELECT tracking_code,request_type,subject,status,created_at,updated_at FROM requests WHERE tracking_code = :code LIMIT 1');
   $stmt->execute([':code'=>$code]);
   $row = $stmt->fetch();
