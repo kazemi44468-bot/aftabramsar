@@ -70,3 +70,24 @@ header{position:sticky;top:0;z-index:100;background:#ffffffed;backdrop-filter:bl
 .slogan-band p{margin:0;color:#71807a}
 @media(max-width:850px){.benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.access-grid,.investment-panel{grid-template-columns:1fr}}
 @media(max-width:560px){.benefit-grid{grid-template-columns:1fr}.benefit-card{padding:19px}.investment-panel{padding:22px}.access-main,.access-aside{padding:21px}.slogan-band{padding:34px 16px}}
+
+/* شبکه دسترسی و امکانات پیرامونی */
+.corridor-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin:24px 0}
+.corridor-card{position:relative;background:#fff;border:1px solid #e2e8e3;border-radius:15px;padding:21px 18px;min-height:180px;box-shadow:0 8px 24px #203c4a08}
+.corridor-card>span{display:grid;place-items:center;width:33px;height:33px;border-radius:10px;background:#eaf0ec;color:#355765;font-weight:800;margin-bottom:15px}
+.corridor-card h3{font-size:1rem;color:#203c4a;margin:0 0 8px}
+.corridor-card p{font-size:.84rem;line-height:2;color:#687771;margin:0}
+.corridor-note{padding:15px 18px;border-right:3px solid #b9855d;background:#f7f5f0;color:#65716c;border-radius:9px;font-size:.86rem;line-height:2}
+.transit-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:22px 0}
+.transit-strip>div{display:flex;align-items:center;gap:13px;padding:17px;background:#f4f7f4;border:1px solid #e3eae3;border-radius:13px}
+.transit-symbol{font-size:1.55rem}
+.transit-strip b,.transit-strip small{display:block}
+.transit-strip b{color:#294652;font-size:.91rem}
+.transit-strip small{color:#74817b;font-size:.78rem;line-height:1.8;margin-top:4px}
+.amenity-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;margin:22px 0}
+.amenity-card{padding:20px;border:1px solid #e4e9e3;border-radius:14px;background:#fff}
+.amenity-card>span{font-size:1.5rem;color:#426271}
+.amenity-card h3{font-size:.98rem;margin:10px 0 6px;color:#294652}
+.amenity-card p{font-size:.84rem;line-height:2;color:#6c7a74;margin:0}
+@media(max-width:900px){.corridor-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.amenity-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.corridor-grid,.amenity-grid,.transit-strip{grid-template-columns:1fr}.corridor-card{min-height:auto}}
