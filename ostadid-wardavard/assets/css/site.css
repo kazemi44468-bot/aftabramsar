@@ -177,7 +177,7 @@ body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
 
 /* نقش زمینه در هدر؛ هم‌خانواده با طرح فوتر */
 .site-header{position:sticky;isolation:isolate}
-.site-header:before{content:"";position:absolute;inset:0;background:url('../../../assets/images/024-pattern.png') repeat;opacity:.045;pointer-events:none;z-index:-1}
+ .site-header:before{content:"";position:absolute;inset:0;background:url('../../../assets/images/024-pattern.png') repeat;opacity:.045;pointer-events:none;z-index:-1}
 .site-header .nav{position:relative;z-index:1}
 .system-process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:24px 0}
 .system-step{padding:17px 16px;background:#fff;border:1px solid #e1e7e1;border-radius:11px}
@@ -200,7 +200,7 @@ body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
 /* Aftab Ramsar navigation, header and footer system — shared project shell */
 @font-face{font-family:Shekasteh;src:url("../fonts/shekasteh%20v2.001.woff") format("woff");font-weight:400;font-display:swap}
 .site-header{position:sticky;top:0;z-index:30;background:#ffffffed;backdrop-filter:blur(14px);border-bottom:1px solid #e2e8e3;box-shadow:0 5px 20px #173d3007;isolation:isolate}
-.site-header:before{content:"";position:absolute;inset:0;background:url("../../../assets/images/024-pattern.png") repeat;opacity:.065;pointer-events:none;z-index:-1}
+.site-header:before{content:"";position:absolute;inset:0;background:url("../../../assets/images/024-pattern.png") repeat;opacity:.065;pointer-events:none;z-index:0}.site-header .nav{z-index:1}
 .site-header .nav{height:78px;display:flex;align-items:center;gap:clamp(8px,1.1vw,16px);min-width:0;position:relative}
 .site-header .brand{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;flex:0 0 auto;min-width:190px;color:#153f35}
 .brand-script{font-family:Shekasteh,Vazirmatn,sans-serif;font-size:2.25rem;line-height:1.05;color:#173f35;white-space:nowrap;text-shadow:0 1px #d7b77b30}
@@ -219,7 +219,7 @@ body{background:#f6f6f1;color:#263a34;letter-spacing:-.01em}
 .site-header .hamb{display:none;background:#fff;border:1px solid #e2e8e3;border-radius:8px;padding:7px 11px;color:#153f35;font-family:inherit}
 .site-header .mobile-nav-note{display:none}
 .footer{position:relative;isolation:isolate;overflow:hidden;background:#0d2d26;color:#fff;padding:48px 0 20px;border-top:0}
-.footer-pattern{position:absolute;inset:0;background:url("../../../assets/images/024-pattern.png") repeat;opacity:.19;z-index:-1;pointer-events:none}
+.footer-pattern{position:absolute;inset:0;background:url("../../../assets/images/024-pattern.png") repeat;opacity:.19;z-index:0;pointer-events:none}.footer .wrap{position:relative;z-index:1}
 .footer .wrap{position:relative;z-index:1}
 .footer .footgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:35px;padding-bottom:30px}
 .footer .footbrand{display:flex;align-items:center;min-height:60px}
